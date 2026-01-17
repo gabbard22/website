@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Gabbard - Professional Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #bb0000; /* Ohio State Scarlet - for accents, buttons, links */
+            --primary-dark: #990000;
+            --text: #212529;
+            --bg-light: #f8f9fa;
+            --gray-dark: #343a40;
+        }
+       
+        html {
+            scroll-behavior: smooth;
+        }
+       
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: var(--text);
+            line-height: 1.7;
+        }
+       
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+       
+        a {
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+       
+        a:hover {
+            color: var(--primary-dark);
+        }
+       
+        #home {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: url('https://media.istockphoto.com/id/1667448660/vector/double-abstract-green-technology-wave-flow-of-particles-big-data-transfer-visualization.jpg?s=612x612&w=0&k=20&c=01-ldGNw1lsHyc33pCTO4dBhikrZkNJh9aJRhVoE8rI=') no-repeat center/cover fixed;
+            overflow: hidden;
+        }
+       
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay for better text contrast */
+        }
+       
+        #home .container {
+            z-index: 1;
+        }
+       
+        .profile {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+       
+        section {
+            padding: 100px 20px;
+        }
+       
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+       
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+        }
+       
+        footer {
+            background: var(--gray-dark);
+            color: #fff;
+            padding: 30px 0;
+        }
+       
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+       
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(187,0,0,0.3);
+        }
+       
+        /* Hamburger menu - scarlet theme */
+        .fixed-toggler {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(187,0,0,0.3);
+            z-index: 1055;
+        }
+       
+        .fixed-toggler .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+       
+        .offcanvas {
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            width: 300px !important;
+        }
+       
+        .offcanvas .nav-link {
+            color: #fff;
+            font-size: 1.3rem;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+       
+        .offcanvas .nav-link:hover {
+            color: #fff;
+            background-color: rgba(255,255,255,0.15);
+            transform: translateX(10px);
+        }
+       
+        /* Card enhancements */
+        .card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+       
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+       
+        .card-img-top {
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+       
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        /* Quote image styling */
+        .quote-img {
+            max-width: 80%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            margin: 3rem auto 4rem auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hamburger Menu Trigger -->
+    <button class="navbar-toggler fixed-toggler position-fixed top-0 end-0 mt-4 me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Offcanvas Menu -->
+    <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasMenuLabel">Ryan Gabbard</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex align-items-start pt-4">
+            <ul class="nav flex-column w-100">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                <li class="nav-item"><a class="nav-link" href="#beyond-work">Beyond Work</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact Me</a></li>
+                <li class="nav-item"><a class="nav-link" href="#linkedin">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <section id="home">
+        <div class="container">
+            <img src="profile.jpg" alt="Ryan Gabbard Profile Picture" class="profile rounded-circle mb-4 img-fluid">
+            <h1 class="display-3">Ryan Gabbard</h1>
+            <p class="lead fs-3">IT Manager | Focused on Reliable Tech and Happy Users | Columbus, Ohio</p>
+        </div>
+    </section>
+    <section id="about" class="container py-5">
+        <h2 class="section-title text-center">About Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <p class="lead text-muted mb-5">Technical Manager with a decade of experience leading IT Support and operations across multi-site environments. I believe in a hands on approach, diving into technical challenges alongside the team while empowering them to develop their own problem solving skills.</p>
+                <p class="text-muted mb-4">In an industry that never stands still, continuous learning isn't just important—it's essential. I'm constantly exploring new technologies and methodologies, viewing adaptability and growth as fundamental pillars of successful IT leadership.</p>
+
+                <!-- Quote Image Moved Here -->
+                <div class="text-center">
+                    <img src="quote.png" alt="Inspirational Quote" class="quote-img img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <h3 class="mt-5">Experience</h3>
+        <ul class="list-unstyled">
+            <li class="mb-4">
+                <strong>Veeam Software</strong> (3 yrs 10 months)
+                <ul class="ms-4 text-muted">
+                    <li>Manager End User Services, Americas Service Desk (Apr 2024 – Present)</li>
+                    <li>Service Desk Supervisor, Americas (Apr 2022 – Apr 2024)</li>
+                </ul>
+            </li>
+            <li class="mb-4">
+                <strong>M/I Homes, Inc.</strong> (9 yrs 10 mos)
+                <ul class="ms-4 text-muted">
+                    <li>IT Support Manager (Jul 2016 – Apr 2022)</li>
+                    <li>Help Desk Technical Lead (Apr 2015 – Jul 2016)</li>
+                    <li>Help Desk Analyst II (May 2014 – Apr 2015)</li>
+                    <li>Help Desk Analyst I (Jul 2012 – May 2014)</li>
+                </ul>
+            </li>
+            <li class="mb-4">
+                <strong>The Ohio State University</strong>
+                <ul class="ms-4 text-muted">
+                    <li>Audio / Visual and Support Technician (Mar 2011 – Jun 2012)</li>
+                </ul>
+            </li>
+        </ul>
+        <h3>Education</h3>
+        <p>The Ohio State University: Bachelor's degree, Communication Information Technology (2008 – 2012)</p>
+        <h3>Honors & Awards</h3>
+        <ul class="list-unstyled">
+            <li>Knowledge-Centered Service (KCS) Certified, 2024</li>
+            <li>Completion of Innovation Leadership Program (IT Leaders Program), 2022</li>
+            <li>Nominee, Central Ohio Tech Power Player ‘Rising Star' Award, 2021</li>
+            <li>ITIL Foundation Certificate in IT Service Management, 2016</li>
+            <li>M/I Homes Corporate Excellence Award, 2014</li>
+        </ul>
+    </section>
+    <section id="beyond-work" class="bg-light">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Beyond Work</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-5">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.pexels.com/photos/29405615/pexels-photo-29405615.jpeg" class="card-img-top" alt="Ohio State Buckeyes football game">
+                        <div class="card-body">
+                            <p class="card-text">When fall arrives, you'll find me cheering on THE Ohio State Buckeyes. Football season is sacred in my household.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.pexels.com/photos/34973702/pexels-photo-34973702.jpeg" class="card-img-top" alt="Family time outdoors with dogs">
+                        <div class="card-body">
+                            <p class="card-text">Family time is a top priority, whether its long hikes or bike rides in nature with my significant other; coloring or playing with my daughter to wrangling my pack of dogs. I truly believe that disconnecting in such a digital world through nature is a must for recharging.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.pexels.com/photos/8487757/pexels-photo-8487757.jpeg" class="card-img-top" alt="DIY home improvement project">
+                        <div class="card-body">
+                            <p class="card-text">I'm a natural problem solver beyond IT. I'm the DIY type who'd rather research and tackle a repair myself than call someone else. I enjoy the hands on challenge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="container py-5">
+        <h2 class="section-title text-center">Contact Me</h2>
+        <p class="text-center lead">Email: <a href="mailto:gabbard.22@outlook.com">gabbard.22@outlook.com</a></p>
+    </section>
+    <section id="linkedin" class="container py-5 text-center">
+        <h2 class="section-title mb-4">LinkedIn</h2>
+        <p class="mb-4">Connect for my full professional network and updates.</p>
+        <a href="https://www.linkedin.com/in/ryan-gabbard-a1a522131/" class="btn btn-primary btn-lg">View LinkedIn Profile</a>
+    </section>
+    <footer class="text-center">
+        <p class="mb-0">&copy; 2026 Ryan Gabbard | Columbus, Ohio</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
