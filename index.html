@@ -15,11 +15,11 @@
             --bg-light: #f8f9fa;
             --gray-dark: #343a40;
         }
-     
+    
         html {
             scroll-behavior: smooth;
         }
-     
+    
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -28,22 +28,22 @@
             color: var(--text);
             line-height: 1.7;
         }
-     
+    
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--primary);
         }
-     
+    
         a {
             color: var(--primary);
             transition: color 0.3s ease;
         }
-     
+    
         a:hover {
             color: var(--primary-dark);
         }
-     
+    
         #home {
             position: relative;
             min-height: 100vh;
@@ -55,7 +55,7 @@
             background: url('https://static.vecteezy.com/system/resources/thumbnails/008/030/254/small/abstract-white-geometric-background-of-the-wall-3d-render-photo.jpg') no-repeat center/cover fixed;
             overflow: hidden;
         }
-     
+    
         #home::before {
             content: '';
             position: absolute;
@@ -63,11 +63,11 @@
             width: 100%; height: 100%;
             background: rgba(255, 255, 255, 0.3); /* Light overlay for subtle softening */
         }
-     
+    
         #home .container {
             z-index: 1;
         }
-     
+    
         .profile {
             width: 250px;
             height: 250px;
@@ -75,17 +75,17 @@
             border: 6px solid var(--gray-dark); /* Dark border for contrast */
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-     
+    
         section {
             padding: 100px 20px;
         }
-     
+    
         .section-title {
             position: relative;
             display: inline-block;
             margin-bottom: 3rem;
         }
-     
+    
         .section-title::after {
             content: '';
             position: absolute;
@@ -95,13 +95,13 @@
             height: 4px;
             background: var(--primary);
         }
-     
+    
         footer {
             background: var(--gray-dark);
             color: #fff;
             padding: 30px 0;
         }
-     
+    
         .btn-primary {
             background: var(--primary);
             border: none;
@@ -109,13 +109,13 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-     
+    
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(187,0,0,0.3);
         }
-     
+    
         /* Hamburger menu - glassmorphism theme */
         .fixed-toggler {
             background: rgba(187, 0, 0, 0.1); /* Semi-transparent scarlet for glass effect */
@@ -132,16 +132,16 @@
             z-index: 1055;
             transition: all 0.3s ease;
         }
-     
+    
         .fixed-toggler:hover {
             background: rgba(187, 0, 0, 0.15); /* Slightly darker on hover */
             box-shadow: 0 6px 15px rgba(187,0,0,0.2);
         }
-     
+    
         .fixed-toggler .navbar-toggler-icon {
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
-     
+    
         .offcanvas {
             background: rgba(187, 0, 0, 0.1); /* Semi-transparent scarlet for glass effect */
             backdrop-filter: blur(10px);
@@ -149,20 +149,20 @@
             border-left: 1px solid rgba(255, 255, 255, 0.2); /* Optional glassmorphism border */
             width: 300px !important;
         }
-     
+    
         .offcanvas .nav-link {
             color: #fff;
             font-size: 1.3rem;
             padding: 1rem 2rem;
             transition: all 0.3s ease;
         }
-     
+    
         .offcanvas .nav-link:hover {
             color: #fff;
             background-color: rgba(255,255,255,0.15);
             transform: translateX(10px);
         }
-     
+    
         /* Card enhancements */
         .card {
             border: none;
@@ -171,18 +171,18 @@
             transition: all 0.4s ease;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
-     
+    
         .card:hover {
             transform: translateY(-15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
-     
+    
         .card-img-top {
             height: 280px;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-     
+    
         .card:hover .card-img-top {
             transform: scale(1.05);
         }
@@ -194,7 +194,6 @@
             margin: 3rem auto 4rem auto;
             display: block;
         }
-
         /* Skill category styling */
         .skill-category {
             font-size: 1.25rem; /* A bit smaller than default h3 (1.75rem), matching h4 default but adjustable */
@@ -358,6 +357,32 @@
                         <img src="https://images.pexels.com/photos/8487757/pexels-photo-8487757.jpeg" class="card-img-top" alt="DIY home improvement project">
                         <div class="card-body">
                             <p class="card-text">I'm a natural problem solver beyond IT. I'm the DIY type who'd rather research and tackle a repair myself than call someone else. I enjoy the hands on challenge.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-5 mt-5">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1609081219090-a6d81d3085bf" class="card-img-top" alt="Hands interacting with modern gadgets and devices">
+                        <div class="card-body">
+                            <p class="card-text">Learning new technologies and being a "techie gadget" guy is totally me. I'm always diving into the latest innovations, tinkering with devices, and staying ahead of the curve. It's what keeps my curiosity fired up in this fast paced digital world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1535132011086-b8818f016104" class="card-img-top" alt="Man mid-swing on a golf course">
+                        <div class="card-body">
+                            <p class="card-text">I love getting out to play golf, though finding the time gets harder as life speeds up, especially living in Ohio where the weather doesn't always cooperate. There's nothing like a round on the course to clear the mind and enjoy a challenge.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1662128400928-0e9a410caed7" class="card-img-top" alt="Person lounging on beach reading a book">
+                        <div class="card-body">
+                            <p class="card-text">Lounging on a beach and reading in the sun is one of those simple pleasures I always look forward to. A perfect escape to unwind, soak up some warmth, and lose yourself in a good book.</p>
                         </div>
                     </div>
                 </div>
